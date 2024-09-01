@@ -1,0 +1,24 @@
+{
+  "name": "daily-task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "nuxt": "^3.13.0",
+    "postcss": "^8.4.42",
+    "tailwindcss": "^3.4.10"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}
