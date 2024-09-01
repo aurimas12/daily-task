@@ -1,50 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet Žemėlapis</title>
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-    <!-- Pagrindinis stilius -->
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-            margin: 20px 0;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Interaktyvus Žemėlapis su Leaflet</h1>
-    <div id="map"></div>
-
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <!-- Pagrindinis JavaScript -->
-    <script>
-        // Inicializuojame žemėlapį ir nustatome pradinę vietą bei mastelį
-        const map = L.map('map').setView([54.6872, 25.2797], 13); // Centras Vilniuje
-
-        // Pridedame plytelių sluoksnį iš OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Pridedame įvykio klausytuvą, kuris leidžia pridėti taškus, kai paspaudžiama ant žemėlapio
-        map.on('click', function(e) {
-            const coords = e.latlng;
-            L.marker([coords.lat, coords.lng]).addTo(map)
-                .bindPopup(`Location: ${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}`)
-                .openPopup();
-        });
-    </script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
