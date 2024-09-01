@@ -8,6 +8,8 @@ __pycache__/
 
 # VScode
 .vscode
+vscode/
+.vscode/
 
 #folders
 data/
