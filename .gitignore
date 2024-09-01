@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# VScode
+.vscode
+
 #folders
 data/
 
@@ -134,7 +137,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-map/
+env_map/
 
 # Spyder project settings
 .spyderproject
