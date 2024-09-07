@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
+    "@nuxt/types": "^2.18.1",
     "autoprefixer": "^10.4.20",
     "nuxt": "^3.13.0",
     "postcss": "^8.4.42",
@@ -19,6 +20,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "leaflet": "^1.9.4"
-  }
+    "@mdi/font": "^7.4.47",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "leaflet": "^1.9.4",
+    "sass": "^1.77.8",
+    "sass-loader": "^10.5.2",
+    "vuetify": "^3.7.0-beta.1"
+  },
+  "type": "commonjs"
 }
