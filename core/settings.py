@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config, AutoConfig
+from django.db import connection
+
+config = AutoConfig(search_path='.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +29,8 @@ SECRET_KEY = 'django-insecure-=@sltr+25%*9ft1^f!fhp06u46^phucoa2777rqnzy7t@*cz5n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ADMINS = [('admin', 'admin@admin.com')]
+
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -75,11 +84,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql', #'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
+print(f"Connected to database: {connection.settings_dict['NAME']}")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -108,7 +122,7 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 
@@ -116,6 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
