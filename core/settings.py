@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import config, AutoConfig
+from django.db import connection
 
 config = AutoConfig(search_path='.env')
 
@@ -91,6 +92,8 @@ DATABASES = {
         'PORT': config('DATABASE_PORT'),
     }
 }
+
+print(f"Connected to database: {connection.settings_dict['NAME']}")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
