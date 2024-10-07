@@ -27,8 +27,8 @@ from django.conf.urls.static import static
 
 from rest_framework.routers import DefaultRouter
 from .views import MyModelViewSet
+from marker.views import list_images
 
-from .views import list_images
 
 schema_view = get_schema_view(
     openapi.Info(
